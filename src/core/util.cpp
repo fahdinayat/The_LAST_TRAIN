@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include "util.h"
 using namespace std;
+//utility code
 int clampInt(int val, int minVal, int maxVal)
 {
 if (val < minVal) return minVal;

@@ -44,7 +44,7 @@ if (count < 17) return;
 if (playerFloor>=1 && playerFloor<=NUM_FLOORS && playerRoom>=1 && playerRoom<=ROOMS_PER_FLOOR)
 {
 int row = 14 - 3*(playerFloor-1);
-int col = 12 + 12*(playerFloor-1);
+int col = 10 + 12*(playerRoom-1);
 lines[row][col] = '[';
 lines[row][col+1] = 'Y';
 lines[row][col+2] = 'O';

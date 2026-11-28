@@ -2,8 +2,8 @@
 #include "switches.h"
 using namespace std;
 bool canUseLift2(int fromFloor, int toFloor, bool lift2Operational, int emergencyTripsLeft){
-   if (fromFloor != 2 && fromFloor != 4 && fromFloor != 5) return false;
-   if (toFloor != 2 && toFloor != 4 && toFloor != 5) return false;
+   if (fromFloor != 1 && fromFloor != 3 && fromFloor != 4) return false;
+   if (toFloor != 1 && toFloor != 3 && toFloor != 4) return false;
 
    if (fromFloor == toFloor) return false;
 

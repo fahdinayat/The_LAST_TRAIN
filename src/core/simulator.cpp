@@ -5,14 +5,13 @@
 #include "viewer_iface.h"
 #include "util.h"
 
-bool handleUseCommand(char itemSymbol, int currentFloor, int currentRoom, int& energy, int& time, int& score, char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, bool objectives[NUM_OBJECTIVES])
-{
+bool handleUseCommand(char itemSymbol, int currentFloor, int currentRoom, int& energy, int& time, int& score, char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, bool objectives[NUM_OBJECTIVES]){
 if(!hasItem(inventory,inventoryCount,itemSymbol)){
     cout << "You don't have that item." << endl;
     return false;
 }
 if (itemSymbol == ENT_MEDICAL_KIT){
-    if (currentFloor != 4 || currentRoom != 1){
+    if (currentFloor != 3 || currentRoom != 0){
         cout << "The Medical Kit can only be used on the Passenger in F4-R1." << endl;
         return false;
     }
@@ -27,7 +26,7 @@ cout << "Passenger rescued!" << endl;
 return true;
 }
 if(itemSymbol==ENT_CAT_CARRIER){
-    if(currentFloor!=3 || currentRoom!=3){
+    if(currentFloor!=2 || currentRoom!=2){
         cout<<"The Cat Carrier can only be used to save cat at F3-R3"<<endl;
         return false;
     }
@@ -44,7 +43,7 @@ if(itemSymbol==ENT_CAT_CARRIER){
     
 }
 if(itemSymbol==ENT_FUSE){
-    if(currentFloor!=3 || currentRoom!=4){
+    if(currentFloor!=2 || currentRoom!=3){
         cout<<"The Fuse can only be used in F3-R4"<<endl;
         return false;
     }
@@ -55,6 +54,7 @@ if(itemSymbol==ENT_FUSE){
     if(!installFuseControlPanel(inventory,inventoryCount,objectives,score)){
     return false;
     }
+    applyResourceDelta(energy,time,COST_ITEM_USE_ENERGY,COST_ITEM_USE_TIME);
     cout<<"Fuse Installed!"<<endl;
     return true;
     
